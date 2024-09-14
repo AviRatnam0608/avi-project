@@ -1,6 +1,11 @@
 import Link from "next/link";
 import { db } from "~/server/db";
 
+// by default, because of Next, pages are cached (pages are created and static even if refreshed on the browser),
+// i.e. unless you call some explicit Next function, they won't be dynamically generated
+
+export const dynamic = "force-dynamic"; // This will force the page to be dynamically generated
+
 const allImages = [
   "https://utfs.io/f/LkYYOTSW20gj5Se405Fhf6wE2eQPagx5YU8jKRirLTB1Asp4",
   "https://utfs.io/f/LkYYOTSW20gjOaLYTV0wefJyCgm6vDG8ZKPwRnks35VlYt71",
