@@ -3,13 +3,19 @@
 This project is for me to just learn better Next JS stuff, and get comfy with Vercel.
 Alongside learning the other tech mentioned below.
 Courtesy of this man - [Theo](https://www.youtube.com/@t3dotgg). Thank you for teaching 😌
+Things I learnt (so far):
+- Vercel
+- Next JS
+- Postgres SQL
+- Drizzle
+- fancy git stuff
 
 ## TODO
 
 - [x] Deploy it (w/ Vercel)
 - [x] Scaffold UI with mock data (mock images using uploadthing)
 - [x] Tidy up build process
-- [ ] Setup a db (w/ Vercel postgresql)
+- [x] Setup a db (w/ Vercel postgresql)
 - [ ] Attach the db
 - [ ] Add auth (w/ Clerk)
 - [ ] Add img upload
