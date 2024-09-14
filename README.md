@@ -7,7 +7,8 @@ Courtesy of this man - [Theo](https://www.youtube.com/@t3dotgg). Thank you for t
 ## TODO
 
 - [x] Deploy it (w/ Vercel)
-- [ ] Scaffold UI with mock data (mock images using uploadthing)
+- [x] Scaffold UI with mock data (mock images using uploadthing)
+- [x] Tidy up build process
 - [ ] Setup a db (w/ Vercel postgresql)
 - [ ] Attach the db
 - [ ] Add auth (w/ Clerk)
