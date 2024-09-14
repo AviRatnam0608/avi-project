@@ -1,7 +1,9 @@
 # Avi's Gallery (Based on the [T3 Stack](https://create.t3.gg/en/introduction) )
+
 This project is for me to just learn better Next JS stuff, and get comfy with Vercel.
 Alongside learning the other tech mentioned below.
 Courtesy of this man - [Theo](https://www.youtube.com/@t3dotgg). Thank you for teaching 😌
+
 ## TODO
 
 - [x] Deploy it (w/ Vercel)
