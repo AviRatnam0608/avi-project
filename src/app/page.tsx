@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { db } from "~/server/db";
 
 const allImages = [
   "https://utfs.io/f/LkYYOTSW20gj5Se405Fhf6wE2eQPagx5YU8jKRirLTB1Asp4",
@@ -13,11 +14,24 @@ const images = allImages.map((image, index) => ({
   alt: `Image ${index + 1}`,
 }));
 
-export default function HomePage() {
+// running on server
+const HomePage = async () => {
+  const posts = await db.query.posts.findMany(); // Fetch posts from the database
+
+  console.log(posts); // Log the fetched posts
+
   return (
     <main className="p-5">
       <div className="grid grid-cols-3 gap-4">
-        {[...images, ...images].map((image) => (
+        {posts.map((post, index) => {
+          return (
+            <div key={post.id + "-" + index} className="relative">
+              {post.name}
+            </div>
+          );
+        })}
+
+        {[...images].map((image) => (
           <div key={image.id} className="relative">
             <img src={image.src} alt={image.alt} className="h-auto w-3/4" />
             <Link
@@ -31,4 +45,6 @@ export default function HomePage() {
       </div>
     </main>
   );
-}
+};
+
+export default HomePage;
