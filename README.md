@@ -13,15 +13,15 @@ Things I learnt (so far):
 
 ## TODO
 
-- [x] Deploy it (w/ Vercel)
-- [x] Scaffold UI with mock data (mock images using uploadthing)
+- [x] Deploy it (w/ [Vercel](https://vercel.com/))
+- [x] Scaffold UI with mock data (mock images using [uploadthing](https://uploadthing.com/))
 - [x] Tidy up build process
-- [x] Setup a db (w/ Vercel postgresql)
-- [ ] Attach the db
-- [ ] Add auth (w/ Clerk)
+- [x] Setup a db (w/ Vercel postgresql + [Drizzle](https://orm.drizzle.team/))
+- [x] Attach the db
+- [ ] Add auth (w/ [Clerk](https://clerk.dev/))
 - [ ] Add img upload
-- [ ] Error handling (w/ Sentry)
+- [ ] Error handling (w/ [Sentry](https://sentry.io/))
 - [ ] Routing image page (parlalle routes)
 - [ ] Delete button (w/ Server Actions)
-- [ ] Analytics (w/ posthog)
-- [ ] Ratelimit (w/ Upstash)
+- [ ] Analytics (w/ [posthog](https://posthog.com/))
+- [ ] Ratelimit (w/ [Upstash](https://upstash.com/))
