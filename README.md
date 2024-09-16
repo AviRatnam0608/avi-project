@@ -18,7 +18,7 @@ Things I learnt (so far):
 - [x] Tidy up build process
 - [x] Setup a db (w/ Vercel postgresql + [Drizzle](https://orm.drizzle.team/))
 - [x] Attach the db
-- [ ] Add auth (w/ [Clerk](https://clerk.dev/))
+- [x] Add auth (w/ [Clerk](https://clerk.dev/))
 - [ ] Add img upload
 - [ ] Error handling (w/ [Sentry](https://sentry.io/))
 - [ ] Routing image page (parlalle routes)
