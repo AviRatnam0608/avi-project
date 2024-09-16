@@ -1,3 +1,4 @@
+import { SignedIn, SignedOut } from "@clerk/nextjs";
 import { desc } from "drizzle-orm";
 import Link from "next/link";
 import { db } from "~/server/db";
@@ -7,29 +8,47 @@ import { db } from "~/server/db";
 
 export const dynamic = "force-dynamic"; // This will force the page to be dynamically generated
 
+const Images = async () => {
+  const images = await db.query.images.findMany({
+    orderBy: (model, { desc }) => desc(model.id), // orderBy takes a model and a helper obj
+  });
+
+  return (
+    <div className="grid grid-cols-3 gap-4">
+      {[...images].map((image) => (
+        <div key={image.id} className="relative">
+          <img src={image.url} className="h-auto w-3/4" />
+          <p>{image.name}</p>
+          <Link
+            href={`/image/${image.id}`}
+            className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white opacity-0 transition-opacity duration-300 hover:opacity-100"
+          >
+            View
+          </Link>
+        </div>
+      ))}
+    </div>
+  );
+};
+
 // running on server
 const HomePage = async () => {
   // Fetch images from the database [images here is the variable]
   // FindMany by default returns db items from latest to oldest
-  const images = await db.query.images.findMany({
-    orderBy: (model, { desc }) => desc(model.id), // orderBy takes a model and a helper obj
-  });
+  // const images = await db.query.images.findMany({
+  //   orderBy: (model, { desc }) => desc(model.id), // orderBy takes a model and a helper obj
+  // });
+
   return (
     <main className="p-5">
-      <div className="grid grid-cols-3 gap-4">
-        {[...images].map((image) => (
-          <div key={image.id} className="relative">
-            <img src={image.url} className="h-auto w-3/4" />
-            <p>{image.name}</p>
-            <Link
-              href={`/image/${image.id}`}
-              className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white opacity-0 transition-opacity duration-300 hover:opacity-100"
-            >
-              View
-            </Link>
-          </div>
-        ))}
-      </div>
+      <SignedOut>
+        <h1 className="text-center text-2xl font-bold">
+          Please sign in to view the gallery
+        </h1>
+      </SignedOut>
+      <SignedIn>
+        <Images />
+      </SignedIn>
     </main>
   );
 };
