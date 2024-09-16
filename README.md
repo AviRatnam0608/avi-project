@@ -20,6 +20,7 @@ Things I learnt (so far):
 - [x] Attach the db
 - [x] Add auth (w/ [Clerk](https://clerk.dev/))
 - [ ] Add img upload
+- [ ] "taint" (server-only)
 - [ ] Error handling (w/ [Sentry](https://sentry.io/))
 - [ ] Routing image page (parlalle routes)
 - [ ] Delete button (w/ Server Actions)
