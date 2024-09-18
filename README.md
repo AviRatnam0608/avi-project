@@ -21,6 +21,7 @@ Things I learnt (so far):
 - [x] Add auth (w/ [Clerk](https://clerk.dev/))
 - [ ] Add img upload
 - [ ] "taint" (server-only)
+- [ ] Use Next/Image component
 - [ ] Error handling (w/ [Sentry](https://sentry.io/))
 - [ ] Routing image page (parlalle routes)
 - [ ] Delete button (w/ Server Actions)
