@@ -10,6 +10,7 @@ Things I learnt (so far):
 - Postgres SQL
 - Drizzle
 - fancy git stuff
+- Clerk Authentication (literally so easy and cool for adding auth)
 
 ## TODO
 
