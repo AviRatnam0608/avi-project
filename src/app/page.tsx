@@ -14,16 +14,23 @@ const Images = async () => {
   });
 
   return (
-    <div className="grid grid-cols-3 gap-4">
+    <div className="mt-40 grid grid-cols-3 gap-4">
       {[...images].map((image) => (
-        <div key={image.id} className="relative">
-          <img src={image.url} className="h-auto w-3/4" />
-          <p>{image.name}</p>
+        <div
+          key={image.id}
+          className="group relative overflow-hidden rounded-xl shadow-md transition-transform duration-300 hover:scale-100"
+        >
+          <img src={image.url} className="h-64 w-full object-cover" />
+          <p className="mt-2 px-4 py-2 text-center text-sm font-medium text-gray-700">
+            {image.name}
+          </p>
           <Link
             href={`/image/${image.id}`}
-            className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white opacity-0 transition-opacity duration-300 hover:opacity-100"
+            className="absolute inset-0 flex items-center justify-center bg-gradient-to-t from-black/70 to-black/40 opacity-0 backdrop-blur-sm transition-all duration-300 group-hover:opacity-100"
           >
-            View
+            <span className="rounded-full bg-white/20 px-4 py-2 text-sm font-medium text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/30">
+              View Image
+            </span>
           </Link>
         </div>
       ))}

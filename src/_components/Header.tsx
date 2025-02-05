@@ -7,24 +7,43 @@ import { useRouter } from "next/navigation";
 const Header = () => {
   const router = useRouter();
   return (
-    <nav className="flex w-full items-center justify-between border-b p-4 text-xl font-semibold">
-      <div>Gallery</div>
-      <div>
-        <SignedOut>
-          {/* If the user is signed out, children of SignedOut component are shown */}
-          <SignInButton />
-        </SignedOut>
-        <div className="flex items-center gap-2">
-          <SignedIn>
-            {/* If the user is signed in, children of SignedIn component are shown */}
-            <UploadButton
-              endpoint="imageUploader"
-              onClientUploadComplete={() => {
-                router.refresh(); // re-runs the current route you're on and resend content required to update the page
-              }}
-            />
-            <UserButton /> {/* This will show the user's profile picture */}
-          </SignedIn>
+    <nav className="fixed top-0 z-50 w-full border-b border-gray-100 bg-black/80 px-6 py-4 backdrop-blur-md">
+      <div className="mx-auto flex max-w-7xl items-center justify-between">
+        <div
+          className="cursor-pointer text-lg font-medium text-gray-300 transition-colors hover:text-gray-600"
+          onClick={() => router.push("/")}
+        >
+          Gallery
+        </div>
+        <div className="flex items-center space-x-4">
+          <SignedOut>
+            <SignInButton mode="modal">
+              <button className="rounded-full bg-black px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-gray-800">
+                Sign In
+              </button>
+            </SignInButton>
+          </SignedOut>
+          <div className="flex items-center gap-4">
+            <SignedIn>
+              <UploadButton
+                endpoint="imageUploader"
+                onClientUploadComplete={() => {
+                  router.refresh();
+                }}
+                appearance={{
+                  button:
+                    "rounded-full bg-black px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-gray-800",
+                }}
+              />
+              <UserButton
+                appearance={{
+                  elements: {
+                    avatarBox: "w-8 h-8 rounded-full",
+                  },
+                }}
+              />
+            </SignedIn>
+          </div>
         </div>
       </div>
     </nav>
