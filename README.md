@@ -20,7 +20,7 @@ Things I learnt (so far):
 - [x] Setup a db (w/ Vercel postgresql + [Drizzle](https://orm.drizzle.team/))
 - [x] Attach the db
 - [x] Add auth (w/ [Clerk](https://clerk.dev/))
-- [ ] Add img upload
+- [x] Add img upload
 - [ ] "taint" (server-only)
 - [ ] Use Next/Image component
 - [ ] Error handling (w/ [Sentry](https://sentry.io/))
