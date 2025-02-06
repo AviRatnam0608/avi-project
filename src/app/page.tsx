@@ -1,7 +1,7 @@
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 import { desc } from "drizzle-orm";
 import Link from "next/link";
-import { db } from "~/server/db";
+import { getMyImages } from "~/server/db/queries";
 
 // by default, because of Next, pages are cached (pages are created and static even if refreshed on the browser),
 // i.e. unless you call some explicit Next function, they won't be dynamically generated
@@ -9,9 +9,7 @@ import { db } from "~/server/db";
 export const dynamic = "force-dynamic"; // This will force the page to be dynamically generated
 
 const Images = async () => {
-  const images = await db.query.images.findMany({
-    orderBy: (model, { desc }) => desc(model.id), // orderBy takes a model and a helper obj
-  });
+  const images = await getMyImages();
 
   return (
     <div className="mt-40 grid grid-cols-3 gap-4">
